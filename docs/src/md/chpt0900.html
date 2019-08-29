@@ -63,6 +63,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="chpt1000.html" />
+    
     
     <link rel="prev" href="chpt0800.html" />
     
@@ -229,6 +231,19 @@
             
                     
                     経路の自動走行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="chpt1000.html">
+            
+                <a href="chpt1000.html">
+            
+                    
+                    調整中（lane_planner）
             
                 </a>
             
@@ -403,6 +418,7 @@
 <ol>
 <li>waypoint_loader&#x9805;&#x76EE;&#x30C1;&#x30A7;&#x30C3;&#x30AF;BOX&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3002;</li>
 </ol>
+<p><strong>&#x203B;&#x58C1;&#x30AE;&#x30EA;&#x30AE;&#x30EA;&#x306E;&#x30EB;&#x30FC;&#x30C8;&#x3084;&#x3001;&#x5F80;&#x5FA9;&#x7D4C;&#x8DEF;&#x306E;&#x9593;&#x9694;&#x304C;&#x72ED;&#x3044;&#x3068;&#x3001;velocity_set&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#xFF3B;Detection Range&#xFF3D;&#x3068;&#x5E72;&#x6E09;&#x3057;&#x3001;&#x30EB;&#x30FC;&#x30C8;&#x304C;&#x751F;&#x6210;&#x3055;&#x308C;&#x306A;&#x3044;&#x306E;&#x3067;&#x6CE8;&#x610F;&#x3002;&#x300C;Detection Range&#xFF0B;&#x3B1;&#x300D; &#x306E;&#x4F59;&#x88D5;&#x3092;&#x6301;&#x305F;&#x305B;&#x308B;&#x3053;&#x3068;&#x3002;</strong></p>
 <h2 id="waypointplanner&#xFF08;astarplanner&#xFF09;&#x9805;&#x76EE;&#x306E;&#x8A2D;&#x5B9A;">waypoint_planner&#xFF08;astar_planner&#xFF09;&#x9805;&#x76EE;&#x306E;&#x8A2D;&#x5B9A;</h2>
 <p>&#x4EE5;&#x4E0B;&#x3001;waypoint_planner&#x9805;&#x76EE;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;&#xFF08;Autoware&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x306B;&#x3088;&#x3063;&#x3066;&#x306F;&#x3001;&#x300C;astar_planner&#x300D;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x8AAD;&#x307F;&#x66FF;&#x3048;&#x306E;&#x3053;&#x3068;&#x3002;&#xFF09;</p>
 <h3 id="asteravoid&#xFF08;obstacleavoid&#xFF09;&#x306E;&#x8A2D;&#x5B9A;">aster_avoid&#xFF08;obstacle_avoid&#xFF09;&#x306E;&#x8A2D;&#x5B9A;</h3>
@@ -520,8 +536,8 @@
 <td>Detection Range</td>
 <td>&#x7D4C;&#x8DEF;&#x4E0A;&#x306E;&#x7269;&#x4F53;&#x3092;&#x691C;&#x51FA;&#x3057;&#x3066;&#x505C;&#x6B62;&#x3059;&#x308B;&#x969B;&#x306E;&#x691C;&#x51FA;&#x7BC4;&#x56F2;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
 <td style="text-align:center">m</td>
-<td style="text-align:center">0.4</td>
-<td>-</td>
+<td style="text-align:center">0.5</td>
+<td>0.4&#x3060;&#x3068;&#x65CB;&#x56DE;&#x6642;&#x3076;&#x3064;&#x304B;&#x308B;</td>
 </tr>
 <tr>
 <td style="text-align:center">8</td>
@@ -670,7 +686,7 @@
 <tr>
 <td style="text-align:center">6</td>
 <td>minimum<em>lookahead</em> distance</td>
-<td>&#x76EE;&#x6A19;&#x70B9;&#x307E;&#x3067;&#x306E;&#x8DDD;&#x96E2;&#x306E;&#x6700;&#x4F4E;&#x5024;&#x3002;</td>
+<td>&#x76EE;&#x6A19;&#x70B9;&#x307E;&#x3067;&#x306E;&#x8DDD;&#x96E2;&#x306E;&#x6700;&#x4F4E;&#x5024;&#x3002;&#xFF08;&#x77ED;&#x3044;&#x3068;&#x52D5;&#x304D;&#x304C;&#x30AB;&#x30AF;&#x30AB;&#x30AF;&#x3057;&#x3001;&#x9577;&#x304F;&#x3059;&#x308B;&#x3068;&#x30B4;&#x30FC;&#x30EB;&#x624B;&#x524D;&#x3067;&#x6B62;&#x307E;&#x308B;&#x8DDD;&#x96E2;&#x3082;&#x9577;&#x304F;&#x306A;&#x308B;&#xFF09;</td>
 <td style="text-align:center">&#x3007;</td>
 <td style="text-align:center"></td>
 <td style="text-align:center">m</td>
@@ -815,10 +831,14 @@
 
             
                 
-                <a href="chpt0800.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 経路設定ファイル作成">
+                <a href="chpt0800.html" class="navigation navigation-prev " aria-label="Previous page: 経路設定ファイル作成">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="chpt1000.html" class="navigation navigation-next " aria-label="Next page: 調整中（lane_planner）">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -827,7 +847,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"経路の自動走行","level":"1.11","depth":1,"previous":{"title":"経路設定ファイル作成","level":"1.10","depth":1,"path":"src/md/chpt0800.md","ref":"src/md/chpt0800.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0900.md","mtime":"2019-08-23T02:03:09.085Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-23T02:06:09.641Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"経路の自動走行","level":"1.11","depth":1,"next":{"title":"調整中（lane_planner）","level":"1.12","depth":1,"path":"src/md/chpt1000.md","ref":"src/md/chpt1000.md","articles":[]},"previous":{"title":"経路設定ファイル作成","level":"1.10","depth":1,"path":"src/md/chpt0800.md","ref":"src/md/chpt0800.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0900.md","mtime":"2019-08-27T05:35:19.194Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-29T05:13:32.212Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
