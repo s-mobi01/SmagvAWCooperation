@@ -230,7 +230,7 @@
                 <a href="chpt0900.html">
             
                     
-                    9.経路の自動走行
+                    9.経路の自動走行（障害物検知で停止）
             
                 </a>
             
@@ -243,7 +243,7 @@
                 <a href="chpt1000.html">
             
                     
-                    10.調整中（lane_planner）
+                    10.経路の自動走行（障害物回避）
             
                 </a>
             
@@ -257,6 +257,19 @@
             
                     
                     11自動経路生成（駐車経路生成）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="chpt1300.html">
+            
+                <a href="chpt1300.html">
+            
+                    
+                    13.調整中（lane_planner）
             
                 </a>
             
@@ -324,7 +337,8 @@
 </ol>
 <h2 id="baselink-to-localizer&#x306E;&#x8A2D;&#x5B9A;&#xFF08;&#x4EFB;&#x610F;&#xFF09;">Baselink to Localizer&#x306E;&#x8A2D;&#x5B9A;&#xFF08;&#x4EFB;&#x610F;&#xFF09;</h2>
 <p>base_link&#x304B;&#x3089;&#x898B;&#x305F;&#x3001;lider&#xFF08;points_raw&#xFF09;&#x306E;TF&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;</p>
-<p>&#x70B9;&#x7FA4;&#x5730;&#x56F3;&#x4F5C;&#x6210;&#x6642;&#x306B;&#x306F;&#x5FC5;&#x9808;&#x3067;&#x306F;&#x306A;&#x3044;&#x304C;&#x3001;NDT&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x304C;&#x6B63;&#x5E38;&#x52D5;&#x4F5C;&#x3057;&#x306A;&#x3044;&#x3053;&#x3068;&#x3042;&#x308B;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;NDT&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x306E;&#x969B;&#x306B;&#x672C;&#x9805;&#x76EE;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x5BFE;&#x5FDC;&#x304C;&#x53EF;&#x80FD;&#x306A;&#x305F;&#x3081;&#x9069;&#x5B9C;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;</p>
+<p>&#x70B9;&#x7FA4;&#x5730;&#x56F3;&#x4F5C;&#x6210;&#x6642;&#x306B;&#x306F;<strong><em>&#x5FC5;&#x9808;&#x3067;&#x306F;&#x306A;&#x3044;</em></strong>&#x304C;&#x3001;NDT&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x304C;&#x6B63;&#x5E38;&#x52D5;&#x4F5C;&#x3057;&#x306A;&#x3044;&#x3053;&#x3068;&#x3042;&#x308B;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;NDT&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x306E;&#x969B;&#x306B;&#x672C;&#x9805;&#x76EE;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x5BFE;&#x5FDC;&#x304C;&#x53EF;&#x80FD;&#x306A;&#x305F;&#x3081;&#x9069;&#x5B9C;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;</p>
+<p>&#xFF08;NDT&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x306E;&#x969B;&#x306B;&#x672C;&#x9805;&#x76EE;&#x3092;&#x8A2D;&#x5B9A;&#x3088;&#x3046;&#x306B;&#x3057;&#x305F;&#x65B9;&#x304C;&#x3088;&#x3044;&#xFF01;&#xFF1F;&#xFF09;</p>
 <p><img src="../img/0700/tabsetup.png" alt="img"></p>
 <ol>
 <li>Runtime Manager&#x306E;&#xFF3B;Setup&#xFF3D;&#x30BF;&#x30D6;&#x3092;&#x9078;&#x629E;&#x3002;</li>
@@ -336,7 +350,7 @@
 <table>
 <thead>
 <tr>
-<th>#</th>
+<th style="text-align:center">#</th>
 <th>&#x6A5F;&#x7A2E;</th>
 <th>tf_x</th>
 <th>tf_z</th>
@@ -344,13 +358,19 @@
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>SMAGV</td>
+<td style="text-align:center">1</td>
+<td>SMAGV&#xFF08;HDL32E&#x8A2D;&#x7F6E;&#x6642;&#xFF09;</td>
 <td>0.255</td>
 <td>0.836</td>
 </tr>
 <tr>
-<td>2</td>
+<td style="text-align:center">2</td>
+<td>SMAGV&#xFF08;VLP16&#x8A2D;&#x7F6E;&#x6642;&#xFF09;</td>
+<td>0.232</td>
+<td>0.666</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
 <td>LogieeS-TC</td>
 <td>0.74</td>
 <td>0.32</td>
@@ -442,9 +462,9 @@
 <tr>
 <td>8</td>
 <td>Minimum Add Scan Shift</td>
-<td>Lider&#x70B9;&#x7FA4;&#x3092;&#x5730;&#x56F3;&#x3068;&#x3057;&#x3066;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x983B;&#x5EA6;&#xFF08;&#x79FB;&#x52D5;&#x8DDD;&#x96E2;&#xFF09;&#x3002;0&#x306E;&#x5834;&#x5408;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;SCAN&#x30C7;&#x30FC;&#x30BF;&#x3002;</td>
+<td>Lider&#x70B9;&#x7FA4;&#x3092;&#x5730;&#x56F3;&#x3068;&#x3057;&#x3066;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x983B;&#x5EA6;&#xFF08;&#x79FB;&#x52D5;&#x8DDD;&#x96E2;&#xFF09;&#x3002;0&#x306E;&#x5834;&#x5408;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;SCAN&#x30C7;&#x30FC;&#x30BF;&#x3002;&#xFF08;&#x5C0F;&#x3055;&#x304F;&#x3059;&#x308B;&#x3068;&#x51E6;&#x7406;&#x304C;&#x91CD;&#x304F;&#x306A;&#x308B;&#x3002;&#xFF09;</td>
 <td style="text-align:center">m</td>
-<td>0.5</td>
+<td>0.5&#xFF5E;1.5</td>
 </tr>
 </tbody>
 </table>
@@ -475,7 +495,12 @@
 </ol>
 <h2 id="ndtmap&#x4F5C;&#x6210;&#x306E;&#x78BA;&#x8A8D;">NDTMAP&#x4F5C;&#x6210;&#x306E;&#x78BA;&#x8A8D;</h2>
 <p>RViz&#x30A6;&#x30A3;&#x30F3;&#x30C9;&#x30A6;&#x306B;&#x5207;&#x308A;&#x66FF;&#x3048;&#x3001;&#x70B9;&#x7FA4;&#x5730;&#x56F3;&#x304C;&#x4F5C;&#x6210;&#x3055;&#x308C;&#x3066;&#x3044;&#x304F;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3002;</p>
-<h2 id="&#x70B9;&#x7FA4;&#x5730;&#x56F3;&#x306E;&#x4FDD;&#x5B58;">&#x70B9;&#x7FA4;&#x5730;&#x56F3;&#x306E;&#x4FDD;&#x5B58;</h2>
+<p>RViz&#x8868;&#x793A;&#x306E;&#x51E6;&#x7406;&#x304C;&#x3060;&#x3093;&#x3060;&#x3093;&#x91CD;&#x304F;&#x306A;&#x3063;&#x3066;&#x3044;&#x304F;&#x306E;&#x3067;&#x3001;&#x524D;&#x753B;&#x9762;&#x306E;ROSBAG&#x518D;&#x751F;&#x306E;&#x7D42;&#x4E86;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x305F;&#x3089;RViz&#x3092;&#x9589;&#x3058;&#x308B;&#x3002;&#xFF08;RViz&#x3092;&#x9589;&#x3058;&#x3066;&#x3082;&#x3001;NDT&#x30DE;&#x30C3;&#x30D7;&#x4F5C;&#x6210;&#x306E;&#x51E6;&#x7406;&#x306F;&#x7D99;&#x7D9A;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;&#xFF09;</p>
+<p>&#x5225;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x30A6;&#x30A3;&#x30F3;&#x30C9;&#x30A6;&#x306B;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;NDT&#x30DE;&#x30C3;&#x30D7;&#x306E;&#x4F5C;&#x6210;&#x72B6;&#x6CC1;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3001;&#x7D42;&#x4E86;&#xFF08;&#x5206;&#x6BCD;&#x5206;&#x5B50;&#x304C;&#x540C;&#x3058;&#x306B;&#x306A;&#x308B;&#xFF09;&#x3059;&#x308B;&#x307E;&#x3067;&#x5F85;&#x3064;&#x3002;</p>
+<pre><code>---------------------------------------------------
+&#xFF08;Processed/Input&#xFF09;:&#xFF08;xxxxx/&#x3007;&#x3007;&#x3007;&#x3007;&#xFF09;
+---------------------------------------------------
+</code></pre><h2 id="&#x70B9;&#x7FA4;&#x5730;&#x56F3;&#x306E;&#x4FDD;&#x5B58;">&#x70B9;&#x7FA4;&#x5730;&#x56F3;&#x306E;&#x4FDD;&#x5B58;</h2>
 <p>ROSBAG&#x518D;&#x751F;&#x7D42;&#x4E86;&#x5F8C;&#x3001;&#x4F5C;&#x6210;&#x3057;&#x305F;&#x70B9;&#x7FA4;&#x5730;&#x56F3;&#x3092;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x3002;</p>
 <p>NDT mapping&#x306E;&#x8A2D;&#x5B9A;&#x3092;&#x884C;&#x3046;&#x3002;</p>
 <p><img src="../img/0600/tabcmp01.png" alt="img"></p>
@@ -494,6 +519,7 @@
 <ul>
 <li>&#x4F5C;&#x6210;&#x3057;&#x305F;&#x5730;&#x56F3;&#x306F;&#x3001;&#x4F5C;&#x6210;&#x3092;&#x958B;&#x59CB;&#x3057;&#x305F;&#x7B87;&#x6240;&#x304C;&#x539F;&#x70B9;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3002;</li>
 <li>&#x4F5C;&#x6210;&#x3057;&#x305F;&#x5730;&#x56F3;&#x3092;&#x81EA;&#x5DF1;&#x4F4D;&#x7F6E;&#x63A8;&#x5B9A;&#x306B;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#xFF3B;Map&#xFF3D;&#x30BF;&#x30D6;&#xFF3B;TF&#xFF3D;&#x9805;&#x76EE;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3002;</li>
+<li>&#x65CB;&#x56DE;&#x52D5;&#x4F5C;&#x3084;&#x3001;&#x30B9;&#x30D4;&#x30FC;&#x30C9;&#x304C;&#x901F;&#x3044;&#x3068;MAP&#x751F;&#x6210;&#x3067;&#x30BA;&#x30EC;&#x304C;&#x767A;&#x751F;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;&#x65CB;&#x56DE;&#x52D5;&#x4F5C;&#x306F;&#x5C11;&#x306A;&#x304F;&#x3001;&#x3086;&#x3063;&#x304F;&#x308A;&#x306E;&#x30B9;&#x30D4;&#x30FC;&#x30C9;&#x3067;&#x4F5C;&#x6210;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x3002;</li>
 </ul>
 
                                 
@@ -538,7 +564,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.点群地図の作成","level":"1.8","depth":1,"next":{"title":"7.AGVの自己位置推定","level":"1.9","depth":1,"path":"src/md/chpt0700.md","ref":"src/md/chpt0700.md","articles":[]},"previous":{"title":"5.ROSBAGの取得","level":"1.7","depth":1,"path":"src/md/chpt0500.md","ref":"src/md/chpt0500.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0600.md","mtime":"2019-09-03T02:07:10.632Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-03T04:06:09.520Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.点群地図の作成","level":"1.8","depth":1,"next":{"title":"7.AGVの自己位置推定","level":"1.9","depth":1,"path":"src/md/chpt0700.md","ref":"src/md/chpt0700.md","articles":[]},"previous":{"title":"5.ROSBAGの取得","level":"1.7","depth":1,"path":"src/md/chpt0500.md","ref":"src/md/chpt0500.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0600.md","mtime":"2019-09-18T05:09:37.904Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T02:49:51.715Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -10,7 +10,8 @@
 * [7.AGVの自己位置推定](src/md/chpt0700.md)
 * [8.経路設定ファイル作成](src/md/chpt0800.md)
 
-- [9.経路の自動走行](src/md/chpt0900.md)
-- [10.調整中（lane_planner）](src/md/chpt1000.md)
+- [9.経路の自動走行（障害物検知で停止）](src/md/chpt0900.md)
+- [10.経路の自動走行（障害物回避）](src/md/chpt1000.md)
 - [11自動経路生成（駐車経路生成）](src/md/chpt1100.md)
+- [13.調整中（lane_planner）](src/md/chpt1300.md)
 

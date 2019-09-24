@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.システムの起動 · SMAGV - Autoware Cooperation Document</title>
+        <title>13.調整中（lane_planner） · SMAGV - Autoware Cooperation Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -63,10 +63,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="chpt0500.html" />
     
-    
-    <link rel="prev" href="chpt0300.html" />
+    <link rel="prev" href="chpt1100.html" />
     
 
     </head>
@@ -160,7 +158,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="chpt0400.html">
+        <li class="chapter " data-level="1.6" data-path="chpt0400.html">
             
                 <a href="chpt0400.html">
             
@@ -264,7 +262,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="chpt1300.html">
+        <li class="chapter active" data-level="1.14" data-path="chpt1300.html">
             
                 <a href="chpt1300.html">
             
@@ -307,7 +305,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >4.システムの起動</a>
+        <a href="../.." >13.調整中（lane_planner）</a>
     </h1>
 </div>
 
@@ -322,40 +320,113 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="4&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x8D77;&#x52D5;">4.&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x8D77;&#x52D5;</h1>
-<p>&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x8D77;&#x52D5;&#x65B9;&#x6CD5;&#x3092;&#x4EE5;&#x4E0B;&#x306B;&#x793A;&#x3059;&#x3002;</p>
-<h2 id="velodyne&#x306E;&#x8D77;&#x52D5;">Velodyne&#x306E;&#x8D77;&#x52D5;</h2>
-<p>&#x672C;&#x66F8;&#x3067;&#x306F;&#x3001;&#x7C21;&#x6613;&#x7684;&#x306B;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x3002;&#x8A73;&#x7D30;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3001;Velodyne&#x30DE;&#x30CB;&#x30E5;&#x30A2;&#x30EB;&#x53C2;&#x7167;&#x306E;&#x4E8B;&#x3002;</p>
-<ul>
-<li>Velodyne&#x3068;&#x5236;&#x5FA1;&#x7528;PC&#x3092;LAN&#x30B1;&#x30FC;&#x30D6;&#x30EB;&#x3067;&#x63A5;&#x7D9A;&#x3057;&#x3001;&#x96FB;&#x6E90;&#x3092;&#x6295;&#x5165;&#x3059;&#x308B;&#x3002;</li>
-</ul>
-<p><img src="../img/0400/0401.png" alt="img"></p>
-<ul>
-<li>&#x56DE;&#x7DDA;&#x672A;&#x63A5;&#x7D9A;&#x72B6;&#x614B;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3002;&#xFF08;&#x4E0A;&#x56F3;&#xFF0D;wlan&#x672A;&#x63A5;&#x7D9A;&#x6642;&#xFF09;</li>
-<li>&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3001;IP&#x30A2;&#x30C9;&#x30EC;&#x30B9;&#x8A2D;&#x5B9A;&#x3092;&#x884C;&#x3046;&#x3002;</li>
-</ul>
-<pre><code class="lang-command"># enp3s0f1 : eth&#x540D;&#xFF08;PC&#x306B;&#x3088;&#x3063;&#x3066;&#x7570;&#x306A;&#x308B;&#x306E;&#x3067;&#x9069;&#x5B9C;&#x8ABF;&#x6574;&#x3059;&#x308B;&#xFF09;
-
-$ sudo ifconfig enp3s0f1 192.168.1.100          &#x2190; PC&#x5074;IP Addr.&#x8A2D;&#x5B9A;
-$ sudo route add 192.168.1.201 enp3s0f1         &#x2190; Velodne&#x3078;&#x306E;&#x30EB;&#x30FC;&#x30C8;&#x8A2D;&#x5B9A;
-</code></pre>
-<h2 id="smagv&#x306E;&#x8D77;&#x52D5;">SMAGV&#x306E;&#x8D77;&#x52D5;</h2>
-<ul>
-<li>&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3001;launch&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3002;</li>
-</ul>
-<pre><code class="lang-command">$ roslaunch smagv_common VLP16test.launch      &#x2190; &#x4EEE;&#x30D5;&#x30A1;&#x30A4;&#x30EB;
-</code></pre>
-<h2 id="autoware&#x306E;&#x8D77;&#x52D5;">Autoware&#x306E;&#x8D77;&#x52D5;</h2>
-<ul>
-<li>&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3001;Autoware&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3002;</li>
-</ul>
-<pre><code class="lang-command">$ cd ~/Autoware/ros/
-$ ./run
-</code></pre>
-<h2 id="&#x305D;&#x306E;&#x4ED6;">&#x305D;&#x306E;&#x4ED6;</h2>
-<ul>
-<li>&#x7279;&#x306B;&#x306A;&#x3057;</li>
-</ul>
+                                <h1 id="10laneplanner&#xFF08;&#x8ABF;&#x6574;&#x4E2D;&#xFF09;">10.lane_planner&#xFF08;&#x8ABF;&#x6574;&#x4E2D;&#xFF09;</h1>
+<p>&#x30D9;&#x30AF;&#x30BF;&#x30FC;&#x30DE;&#x30C3;&#x30D7;&#x7528;&#x5B9A;&#x7FA9;&#xFF1F;</p>
+<h2 id="lanerule">lane_rule</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th>&#x9805;&#x76EE;&#x540D;</th>
+<th>&#x5185;&#x5BB9;</th>
+<th style="text-align:center">&#x5358;&#x4F4D;</th>
+<th>smagv&#x59A5;&#x5F53;&#x5024;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>Accelerarion</td>
+<td>&#x505C;&#x6B62;&#x7DDA;&#x3084;&#x30AB;&#x30FC;&#x30D6;&#x3067;&#x52A0;&#x901F;&#x30FB;&#x6E1B;&#x901F;&#x3059;&#x308B;&#x969B;&#x306E;&#x52A0;&#x901F;&#x5EA6;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;&#xFF08;&#x30AB;&#x30FC;&#x30D6;&#x5468;&#x8FBA;&#x306E;waypoint&#x306E;&#x901F;&#x5EA6;&#x304C;&#x5909;&#x5316;&#x3059;&#x308B;&#xFF09;</td>
+<td style="text-align:center">m/s^2</td>
+<td>&#xFF1F;</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Stopline Search Radius</td>
+<td>&#x7D4C;&#x8DEF;&#x4E0A;&#x3067;&#x505C;&#x6B62;&#x7DDA;&#x3092;&#x63A2;&#x7D22;&#x3059;&#x308B;&#x534A;&#x5F84;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center">m</td>
+<td>&#xFF1F;</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>Number of Zero Ahead</td>
+<td>&#x505C;&#x6B62;&#x7DDA;&#x306E;&#x524D;&#x306B;&#x7F6E;&#x304F;&#x901F;&#x5EA6;0&#x306E;waypoint&#x306E;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center">&#x500B;</td>
+<td>&#xFF1F;</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>Number of Zero Behind</td>
+<td>&#x505C;&#x6B62;&#x7DDA;&#x306E;&#x5F8C;&#x308D;&#x306B;&#x7F6E;&#x304F;&#x901F;&#x5EA6;0&#x306E;waypoint&#x306E;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center">&#x500B;</td>
+<td>&#xFF1F;</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>number_of_smoothing_count</td>
+<td>&#x901F;&#x5EA6;&#x3092;&#x4FEE;&#x6B63;&#x3059;&#x308B;waipoint&#x306E;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center">&#x500B;</td>
+<td>&#xFF1F;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="laneselect">lane_select</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th>&#x9805;&#x76EE;&#x540D;</th>
+<th>&#x5185;&#x5BB9;</th>
+<th style="text-align:center">&#x5358;&#x4F4D;</th>
+<th>smagv&#x59A5;&#x5F53;&#x5024;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>Distance threshold to neighbor lanes</td>
+<td>&#x96A3;&#x306E;&#x7D4C;&#x8DEF;&#x3092;&#x8A8D;&#x8B58;&#x3059;&#x308B;&#x8DDD;&#x96E2;&#x306E;&#x3057;&#x304D;&#x3044;&#x5024;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center">m</td>
+<td>&#xFF1F;</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Lane Change Interval After Lane merge</td>
+<td>&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x3057;&#x305F;&#x5F8C;&#x306B;&#x3001;&#x518D;&#x3073;&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x3059;&#x308B;&#x307E;&#x3067;&#x306E;&#x8D70;&#x884C;&#x8DDD;&#x96E2;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center">m</td>
+<td>&#xFF1F;</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>Lane Change Target Ratio</td>
+<td>&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x6642;&#x306E;&#x8D70;&#x884C;&#x8DDD;&#x96E2;&#x3092;&#x6C7A;&#x3081;&#x308B;&#x6BD4;&#x7387;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center"></td>
+<td>&#xFF1F;</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>Lane Change Target Minimum</td>
+<td>&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x6642;&#x306E;&#x8D70;&#x884C;&#x8DDD;&#x96E2;&#x306E;&#x6700;&#x5C0F;&#x5024;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center">m</td>
+<td>&#xFF1F;</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>Vector Length of Hermite Curve</td>
+<td>&#x66F2;&#x7DDA;&#x88DC;&#x9593;&#x306B;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x30A8;&#x30EB;&#x30DF;&#x30FC;&#x30C8;&#x66F2;&#x7DDA;&#xFF08;&#x59CB;&#x70B9;&#x3068;&#x7D42;&#x70B9;&#x3092;&#x6ED1;&#x3089;&#x304B;&#x306B;&#x7D50;&#x3076;&#x66F2;&#x7DDA;&#xFF09;&#x306E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x306E;&#x5927;&#x304D;&#x3055;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center">m</td>
+<td>&#xFF1F;</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>Enable Planner dynamical switch</td>
+<td>waypoint&#x3092;&#x52D5;&#x7684;&#x306B;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td style="text-align:center">-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -383,14 +454,10 @@ $ ./run
 
             
                 
-                <a href="chpt0300.html" class="navigation navigation-prev " aria-label="Previous page: 3.環境変数の設定">
+                <a href="chpt1100.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 11自動経路生成（駐車経路生成）">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="chpt0500.html" class="navigation navigation-next " aria-label="Next page: 5.ROSBAGの取得">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -399,7 +466,7 @@ $ ./run
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.システムの起動","level":"1.6","depth":1,"next":{"title":"5.ROSBAGの取得","level":"1.7","depth":1,"path":"src/md/chpt0500.md","ref":"src/md/chpt0500.md","articles":[]},"previous":{"title":"3.環境変数の設定","level":"1.5","depth":1,"path":"src/md/chpt0300.md","ref":"src/md/chpt0300.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0400.md","mtime":"2019-09-24T02:39:26.654Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T02:49:51.715Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"13.調整中（lane_planner）","level":"1.14","depth":1,"previous":{"title":"11自動経路生成（駐車経路生成）","level":"1.13","depth":1,"path":"src/md/chpt1100.md","ref":"src/md/chpt1100.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt1300.md","mtime":"2019-09-03T02:07:30.397Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-24T02:49:51.715Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
