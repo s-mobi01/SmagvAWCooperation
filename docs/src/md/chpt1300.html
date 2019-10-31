@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>13.調整中（lane_planner） · SMAGV - Autoware Cooperation Document</title>
+        <title>13.物体検出（画像からのクラスタリング） · SMAGV - Autoware Cooperation Document</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -63,8 +63,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="chpt1400.html" />
     
-    <link rel="prev" href="chpt1100.html" />
+    
+    <link rel="prev" href="chpt1200.html" />
     
 
     </head>
@@ -254,7 +256,7 @@
                 <a href="chpt1100.html">
             
                     
-                    11自動経路生成（駐車経路生成）
+                    11.自動経路生成（駐車経路生成）
             
                 </a>
             
@@ -262,12 +264,77 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.14" data-path="chpt1300.html">
+        <li class="chapter " data-level="1.14" data-path="chpt1200.html">
+            
+                <a href="chpt1200.html">
+            
+                    
+                    12.物体検出（点群からのクラスタリング）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.15" data-path="chpt1300.html">
             
                 <a href="chpt1300.html">
             
                     
-                    13.調整中（lane_planner）
+                    13.物体検出（画像からのクラスタリング）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="chpt1400.html">
+            
+                <a href="chpt1400.html">
+            
+                    
+                    14.物体検出（センサフュージョン）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="chpt1500.html">
+            
+                <a href="chpt1500.html">
+            
+                    
+                    15.物体検出（クラスタトラッキング）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="chptfr01.html">
+            
+                <a href="chptfr01.html">
+            
+                    
+                    付録1.lane_planner（調整中）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="chptfr02.html">
+            
+                <a href="chptfr02.html">
+            
+                    
+                    付録2.センサキャリブレーション（調整中）
             
                 </a>
             
@@ -305,7 +372,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >13.調整中（lane_planner）</a>
+        <a href="../.." >13.物体検出（画像からのクラスタリング）</a>
     </h1>
 </div>
 
@@ -320,9 +387,47 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="10laneplanner&#xFF08;&#x8ABF;&#x6574;&#x4E2D;&#xFF09;">10.lane_planner&#xFF08;&#x8ABF;&#x6574;&#x4E2D;&#xFF09;</h1>
-<p>&#x30D9;&#x30AF;&#x30BF;&#x30FC;&#x30DE;&#x30C3;&#x30D7;&#x7528;&#x5B9A;&#x7FA9;&#xFF1F;</p>
-<h2 id="lanerule">lane_rule</h2>
+                                <h1 id="13&#x7269;&#x4F53;&#x691C;&#x51FA;&#xFF08;&#x753B;&#x50CF;&#x304B;&#x3089;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF09;">13.&#x7269;&#x4F53;&#x691C;&#x51FA;&#xFF08;&#x753B;&#x50CF;&#x304B;&#x3089;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#xFF09;</h1>
+<p>&#x753B;&#x50CF;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x7269;&#x4F53;&#x691C;&#x51FA;&#x65B9;&#x6CD5;&#x3092;&#x4EE5;&#x4E0B;&#x306B;&#x793A;&#x3059;&#x3002;</p>
+<p>&#x203B;&#x8A2D;&#x5B9A;&#x8A73;&#x7D30;&#x306F;&#x3001;&#x300C;Autoware &#x81EA;&#x52D5;&#x904B;&#x8EE2;&#x30BD;&#x30D5;&#x30C8;&#x30A6;&#x30A7;&#x30A2;&#x5165;&#x9580;&#x300D;P124&#x53C2;&#x7167;</p>
+<h2 id="&#x4E8B;&#x524D;&#x6E96;&#x5099;">&#x4E8B;&#x524D;&#x6E96;&#x5099;</h2>
+<p>&#x4E8B;&#x524D;&#x306B;&#x4EE5;&#x4E0B;&#x306E;&#x6E96;&#x5099;&#x3092;&#x3057;&#x3066;&#x304A;&#x304F;&#x3053;&#x3068;&#x3002;</p>
+<h3 id="&#x6E96;&#x5099;1">&#x6E96;&#x5099;1</h3>
+<p>YOLO&#xFF08;You Look Only Onse&#x300C;&#x30EA;&#x30A2;&#x30EB;&#x30BF;&#x30A4;&#x30E0;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x691C;&#x51FA;&#x30A2;&#x30EB;&#x30B4;&#x30EA;&#x30BA;&#x30E0;&#x300D;&#xFF09;&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3092;&#x884C;&#x3046;&#x3002;</p>
+<h4 id="darknet-&#x5171;&#x901A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;">darknet &#x5171;&#x901A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;</h4>
+<p>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x672C;&#x4F53;&#x3082;&#x540C;&#x6642;&#x306B;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x308B;&#x304C;&#x3001;&#x672C;&#x66F8;&#x3067;&#x306F;&#x3001;Autoware &#x5185;&#x306E;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x305F;&#x3081;&#x3001;&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#x306E;&#x307F;&#x5229;&#x7528;&#x3059;&#x308B;&#x3002;</p>
+<pre><code class="lang-command">$ cd
+$ git clone https://github.com/pjreddie/darknet.git
+</code></pre>
+<h4 id="&#x5B66;&#x7FD2;&#x6E08;&#x307F;&#x306E;&#x30A6;&#x30A7;&#x30A4;&#x30C8;&#xFF08;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF09;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;">&#x5B66;&#x7FD2;&#x6E08;&#x307F;&#x306E;&#x30A6;&#x30A7;&#x30A4;&#x30C8;&#xFF08;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF09;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;</h4>
+<pre><code class="lang-command">$ cd ~/darknet/data
+$ wget http://pjreddie.com/media/files/yolov2.weights    &#x2190; YOLO V2&#x7528;
+$ wget http://pjreddie.com/media/files/yolov3.weights    &#x2190; YOLO V3&#x7528;
+</code></pre>
+<h3 id="&#x6E96;&#x5099;2">&#x6E96;&#x5099;2</h3>
+<p>&#x4EE5;&#x4E0B;&#x306E;&#x3044;&#x305A;&#x308C;&#x304B;&#x3092;&#x6E96;&#x5099;&#x3057;&#x3066;&#x304A;&#x304F;&#x3053;&#x3068;&#x3002;</p>
+<ul>
+<li>velodyne&#x3001;SMAGV&#x306E;&#x8D77;&#x52D5;</li>
+<li>ROSBAG&#x518D;&#x751F;&#x306E;&#x4E00;&#x6642;&#x505C;&#x6B62;</li>
+</ul>
+<h2 id="&#x7269;&#x4F53;&#x691C;&#x51FA;&#x30A2;&#x30EB;&#x30B4;&#x30EA;&#x30BA;&#x30E0;&#x306E;&#x8D77;&#x52D5;">&#x7269;&#x4F53;&#x691C;&#x51FA;&#x30A2;&#x30EB;&#x30B4;&#x30EA;&#x30BA;&#x30E0;&#x306E;&#x8D77;&#x52D5;</h2>
+<p>&#x4EE5;&#x4E0B;&#x306E;&#x3044;&#x305A;&#x308C;&#x304B;&#x3092;&#x884C;&#x3046;&#x3002;&#xFF08;&#x901A;&#x5E38;&#x306F;&#x4E88;&#x6E2C;&#x7387;&#x306E;&#x9AD8;&#x3044;&#x300C;YOLO v3&#x300D;&#x3067;&#x3088;&#x3044;&#xFF09;</p>
+<h3 id="ssd&#x306E;&#x8D77;&#x52D5;">SSD&#x306E;&#x8D77;&#x52D5;</h3>
+<p>vision_ssd_detect&#x9805;&#x76EE;&#x306E;&#x8A2D;&#x5B9A;&#x3092;&#x3059;&#x308B;&#x3002;</p>
+<p>&#x5185;&#x5BB9;&#x306F;&#x7701;&#x7565;</p>
+<p><img src="../img/1300/tabcmp01.png" alt="img"></p>
+<h3 id="yolo-v2&#x306E;&#x8D77;&#x52D5;">YOLO v2&#x306E;&#x8D77;&#x52D5;</h3>
+<p>vision_darknet_yolo2&#x9805;&#x76EE;&#x306E;&#x8A2D;&#x5B9A;&#x3092;&#x3059;&#x308B;&#x3002;</p>
+<p><img src="../img/1300/tabcmp02.png" alt="img"></p>
+<ol>
+<li>Runtime Manager&#x306E;&#xFF3B;Computing&#xFF3D;&#x30BF;&#x30D6;&#x3092;&#x9078;&#x629E;&#x3002;</li>
+<li>vision_darknet_yolo2&#x9805;&#x76EE;&#xFF3B;app&#xFF3D;&#x62BC;&#x4E0B;&#x3067;&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#x8A2D;&#x5B9A;&#x753B;&#x9762;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x3002;</li>
+</ol>
+<p><img src="../img/1300/yolo2.png" alt="img"></p>
+<ol>
+<li>vision_darknet_yolo2&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#x9805;&#x76EE;&#x3092;&#x9069;&#x5B9C;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;</li>
+<li>&#xFF3B;OK&#xFF3D;&#x30DC;&#x30BF;&#x30F3;&#x62BC;&#x4E0B;&#x3067;&#x524D;&#x753B;&#x9762;&#x306B;&#x623B;&#x308B;&#x3002;</li>
+</ol>
 <table>
 <thead>
 <tr>
@@ -336,98 +441,202 @@
 <tbody>
 <tr>
 <td style="text-align:center">1</td>
-<td>Accelerarion</td>
-<td>&#x505C;&#x6B62;&#x7DDA;&#x3084;&#x30AB;&#x30FC;&#x30D6;&#x3067;&#x52A0;&#x901F;&#x30FB;&#x6E1B;&#x901F;&#x3059;&#x308B;&#x969B;&#x306E;&#x52A0;&#x901F;&#x5EA6;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;&#xFF08;&#x30AB;&#x30FC;&#x30D6;&#x5468;&#x8FBA;&#x306E;waypoint&#x306E;&#x901F;&#x5EA6;&#x304C;&#x5909;&#x5316;&#x3059;&#x308B;&#xFF09;</td>
-<td style="text-align:center">m/s^2</td>
-<td>&#xFF1F;</td>
+<td>Score Threshold</td>
+<td>&#x4E00;&#x81F4;&#x30B9;&#x30B3;&#x30A2;&#x3057;&#x304D;&#x3044;&#x5024;&#xFF1F;</td>
+<td style="text-align:center">-</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align:center">2</td>
-<td>Stopline Search Radius</td>
-<td>&#x7D4C;&#x8DEF;&#x4E0A;&#x3067;&#x505C;&#x6B62;&#x7DDA;&#x3092;&#x63A2;&#x7D22;&#x3059;&#x308B;&#x534A;&#x5F84;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
-<td style="text-align:center">m</td>
-<td>&#xFF1F;</td>
+<td>NMS Threshold</td>
+<td>&#x975E;&#x6700;&#x5927;&#x6291;&#x5236;&#x3057;&#x304D;&#x3044;&#x5024;&#xFF08;Non-maximum supression threshold&#xFF09;</td>
+<td style="text-align:center">-</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align:center">3</td>
-<td>Number of Zero Ahead</td>
-<td>&#x505C;&#x6B62;&#x7DDA;&#x306E;&#x524D;&#x306B;&#x7F6E;&#x304F;&#x901F;&#x5EA6;0&#x306E;waypoint&#x306E;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
-<td style="text-align:center">&#x500B;</td>
-<td>&#xFF1F;</td>
+<td>image_src</td>
+<td>&#x753B;&#x50CF;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x540D;</td>
+<td style="text-align:center">-</td>
+<td>/camera/color/image_raw</td>
 </tr>
 <tr>
 <td style="text-align:center">4</td>
-<td>Number of Zero Behind</td>
-<td>&#x505C;&#x6B62;&#x7DDA;&#x306E;&#x5F8C;&#x308D;&#x306B;&#x7F6E;&#x304F;&#x901F;&#x5EA6;0&#x306E;waypoint&#x306E;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
-<td style="text-align:center">&#x500B;</td>
-<td>&#xFF1F;</td>
+<td>network&#xFF65;&#xFF65;&#xFF65;(cfg)</td>
+<td>&#x30A2;&#x30EB;&#x30B4;&#x30EA;&#x30BA;&#x30E0;&#x8D77;&#x52D5;&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#x30D5;&#x30A1;&#x30A4;&#x30EB;</td>
+<td style="text-align:center">-</td>
+<td>$HOME/darknet/cfg/yolov2.cfg</td>
 </tr>
 <tr>
 <td style="text-align:center">5</td>
-<td>number_of_smoothing_count</td>
-<td>&#x901F;&#x5EA6;&#x3092;&#x4FEE;&#x6B63;&#x3059;&#x308B;waipoint&#x306E;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
-<td style="text-align:center">&#x500B;</td>
-<td>&#xFF1F;</td>
-</tr>
-</tbody>
-</table>
-<h2 id="laneselect">lane_select</h2>
-<p><a href="https://autoware.readthedocs.io/en/feature-documentation_rtd/DevelopersGuide/PackagesAPI/mission/lane_planner.html" target="_blank">https://autoware.readthedocs.io/en/feature-documentation_rtd/DevelopersGuide/PackagesAPI/mission/lane_planner.html</a></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">#</th>
-<th>&#x9805;&#x76EE;&#x540D;</th>
-<th>&#x5185;&#x5BB9;</th>
-<th style="text-align:center">&#x5358;&#x4F4D;</th>
-<th>smagv&#x59A5;&#x5F53;&#x5024;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td>Distance threshold to neighbor lanes</td>
-<td>&#x73FE;&#x5728;&#x7D4C;&#x8DEF;&#x306E;&#x5468;&#x308A;&#x306E;&#x6709;&#x52B9;&#x306A;&#x8ECA;&#x7DDA;&#x3092;&#x691C;&#x51FA;&#x3059;&#x308B;&#x969B;&#x306E;&#x3057;&#x304D;&#x3044;&#x5024;&#x3092;&#x8868;&#x3059;&#x3002;&#x3053;&#x306E;&#x3057;&#x304D;&#x3044;&#x5024;&#x3088;&#x308A;&#x9060;&#x3044;&#x8DDD;&#x96E2;&#x306B;&#x3042;&#x308B;&#x8ECA;&#x7DDA;&#x306F;&#x8ECA;&#x7DDA;&#x3068;&#x3057;&#x3066;&#x8A8D;&#x8B58;&#x3057;&#x306A;&#x3044;&#x3002;</td>
-<td style="text-align:center">m</td>
-<td>&#xFF1F;</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td>Lane Change Interval After Lane merge</td>
-<td>&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x3092;&#x884C;&#x3063;&#x305F;&#x3042;&#x3068;&#x306B;&#x4F55;&#x30E1;&#x30FC;&#x30C8;&#x30EB;&#x8D70;&#x3063;&#x305F;&#x3089;&#x307E;&#x305F;&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x3092;&#x884C;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x304B;&#x306E;&#x5024;&#x3092;&#x8868;&#x3059;&#x3002;</td>
-<td style="text-align:center">m</td>
-<td>&#xFF1F;</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td>Lane Change Target Ratio</td>
-<td>&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x3092;&#x884C;&#x3046;&#x4E88;&#x5B9A;&#x306E;&#x8ECA;&#x7DDA;&#x4E0A;&#x306E;&#x76EE;&#x6A19;&#x70B9;&#x3092;&#x901F;&#x5EA6;(m/s)&#x306B;&#x6BD4;&#x4F8B;&#x3057;&#x305F;&#x8DDD;&#x96E2;&#x3067;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x969B;&#x306B;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x5024;&#x3002; &#x76EE;&#x6A19;&#x70B9;&#x63A2;&#x7D22;&#x306E;&#x8D77;&#x70B9;&#x306F;&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x4E88;&#x5B9A;&#x306E;&#x8ECA;&#x7DDA;&#x4E0A;&#x306E;&#x70B9;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;&#x53F3;&#x6298;or&#x5DE6;&#x6298;&#x306E;&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x6301;&#x3064;&#x70B9;&#x306E;&#x6700;&#x8FD1;&#x508D;&#x70B9;&#x3002;</td>
-<td style="text-align:center"></td>
-<td>&#xFF1F;</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td>Lane Change Target Minimum</td>
-<td>&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x3092;&#x884C;&#x3046;&#x4E88;&#x5B9A;&#x306E;&#x8ECA;&#x7DDA;&#x4E0A;&#x306E;&#x76EE;&#x6A19;&#x70B9;&#x307E;&#x3067;&#x306E;&#x6700;&#x4F4E;&#x8DDD;&#x96E2;&#x3092;&#x8868;&#x3059;&#x3002; &#x76EE;&#x6A19;&#x70B9;&#x63A2;&#x7D22;&#x306E;&#x8D77;&#x70B9;&#x306F;&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x4E88;&#x5B9A;&#x306E;&#x8ECA;&#x7DDA;&#x4E0A;&#x306E;&#x70B9;&#x306B;&#x304A;&#x3044;&#x3066;&#x3001;&#x53F3;&#x6298;or&#x5DE6;&#x6298;&#x306E;&#x8ECA;&#x7DDA;&#x5909;&#x66F4;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x6301;&#x3064;&#x70B9;&#x306E;&#x6700;&#x8FD1;&#x508D;&#x70B9;&#x3002;</td>
-<td style="text-align:center">m</td>
-<td>&#xFF1F;</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td>Vector Length of Hermite Curve</td>
-<td>&#x66F2;&#x7DDA;&#x88DC;&#x9593;&#x306B;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x30A8;&#x30EB;&#x30DF;&#x30FC;&#x30C8;&#x66F2;&#x7DDA;&#xFF08;&#x59CB;&#x70B9;&#x3068;&#x7D42;&#x70B9;&#x3092;&#x6ED1;&#x3089;&#x304B;&#x306B;&#x7D50;&#x3076;&#x66F2;&#x7DDA;&#xFF09;&#x306E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x306E;&#x5927;&#x304D;&#x3055;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
-<td style="text-align:center">m</td>
-<td>&#xFF1F;</td>
+<td>pre&#xFF65;&#xFF65;&#xFF65;(weight)</td>
+<td>&#x5B66;&#x7FD2;&#x6E08;&#x307F;&#x306E;&#x30A6;&#x30A7;&#x30A4;&#x30C8;&#xFF08;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF09;&#x30D5;&#x30A1;&#x30A4;&#x30EB;</td>
+<td style="text-align:center">-</td>
+<td>$HOME/darknet/data/yolov2.weight</td>
 </tr>
 <tr>
 <td style="text-align:center">6</td>
-<td>Enable Planner dynamical switch</td>
-<td>waypoint&#x3092;&#x52D5;&#x7684;&#x306B;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</td>
+<td>names&#xFF65;&#xFF65;&#xFF65;(names)</td>
+<td>&#x691C;&#x51FA;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x540D;&#x5B9A;&#x7FA9;&#x30D5;&#x30A1;&#x30A4;&#x30EB;</td>
 <td style="text-align:center">-</td>
-<td>-</td>
+<td>$HOME/darknet/data/coco.names</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>gpu_device_id</td>
+<td></td>
+<td style="text-align:center"></td>
 </tr>
 </tbody>
 </table>
+<p><img src="../img/1300/tabcmp03.png" alt="img"></p>
+<ol>
+<li>vision_darknet_yolo2&#x9805;&#x76EE;&#x30C1;&#x30A7;&#x30C3;&#x30AF;BOX&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3002;</li>
+</ol>
+<h3 id="yolo-v3&#x306E;&#x8D77;&#x52D5;">YOLO v3&#x306E;&#x8D77;&#x52D5;</h3>
+<p> vision_darknet_yolo3&#x9805;&#x76EE;&#x306E;&#x8A2D;&#x5B9A;&#x3092;&#x3059;&#x308B;&#x3002;</p>
+<p><img src="../img/1300/tabcmp04.png" alt="img"></p>
+<ol>
+<li>Runtime Manager&#x306E;&#xFF3B;Computing&#xFF3D;&#x30BF;&#x30D6;&#x3092;&#x9078;&#x629E;&#x3002;</li>
+<li>vision_darknet_yolo3&#x9805;&#x76EE;&#xFF3B;app&#xFF3D;&#x62BC;&#x4E0B;&#x3067;&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#x8A2D;&#x5B9A;&#x753B;&#x9762;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x3002;</li>
+</ol>
+<p><img src="../img/1300/yolo3.png" alt="img"></p>
+<ol>
+<li>vision_darknet_yolo3&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#x9805;&#x76EE;&#x3092;&#x9069;&#x5B9C;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;</li>
+<li>&#xFF3B;OK&#xFF3D;&#x30DC;&#x30BF;&#x30F3;&#x62BC;&#x4E0B;&#x3067;&#x524D;&#x753B;&#x9762;&#x306B;&#x623B;&#x308B;&#x3002;</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th>&#x9805;&#x76EE;&#x540D;</th>
+<th>&#x5185;&#x5BB9;</th>
+<th style="text-align:center">&#x5358;&#x4F4D;</th>
+<th>smagv&#x59A5;&#x5F53;&#x5024;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>Score Threshold</td>
+<td>&#x4E00;&#x81F4;&#x30B9;&#x30B3;&#x30A2;&#x3057;&#x304D;&#x3044;&#x5024;&#xFF1F;</td>
+<td style="text-align:center">-</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>NMS Threshold</td>
+<td>&#x975E;&#x6700;&#x5927;&#x6291;&#x5236;&#x3057;&#x304D;&#x3044;&#x5024;&#xFF08;Non-maximum supression threshold&#xFF09;</td>
+<td style="text-align:center">-</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>image_src</td>
+<td>&#x753B;&#x50CF;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x540D;</td>
+<td style="text-align:center">-</td>
+<td>/camera/color/image_raw</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>network&#xFF65;&#xFF65;&#xFF65;(cfg)</td>
+<td>&#x30A2;&#x30EB;&#x30B4;&#x30EA;&#x30BA;&#x30E0;&#x8D77;&#x52D5;&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#x30D5;&#x30A1;&#x30A4;&#x30EB;</td>
+<td style="text-align:center">-</td>
+<td>$HOME/darknet/cfg/yolov3.cfg</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>pre&#xFF65;&#xFF65;&#xFF65;(weight)</td>
+<td>&#x5B66;&#x7FD2;&#x6E08;&#x307F;&#x306E;&#x30A6;&#x30A7;&#x30A4;&#x30C8;&#xFF08;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#xFF09;&#x30D5;&#x30A1;&#x30A4;&#x30EB;</td>
+<td style="text-align:center">-</td>
+<td>$HOME/darknet/data/yolov3.weight</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>names&#xFF65;&#xFF65;&#xFF65;(names)</td>
+<td>&#x691C;&#x51FA;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x540D;&#x5B9A;&#x7FA9;&#x30D5;&#x30A1;&#x30A4;&#x30EB;</td>
+<td style="text-align:center">-</td>
+<td>$HOME/darknet/data/coco.names</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>gpu_device_id</td>
+<td></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="../img/1300/tabcmp05.png" alt="img"> </p>
+<ol>
+<li>vision_darknet_yolo3&#x9805;&#x76EE;&#x30C1;&#x30A7;&#x30C3;&#x30AF;BOX&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3002;</li>
+</ol>
+<p>CUDA&#x30E1;&#x30E2;&#x30EA;&#x30AA;&#x30FC;&#x30D0;&#x306B;&#x3088;&#x308B;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x300C;yolov3.cfg&#x300D;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4EE5;&#x4E0B;&#x5909;&#x66F4;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x56DE;&#x907F;&#x3067;&#x304D;&#x308B;&#x3002;&#x5909;&#x66F4;&#x5F8C;&#x306F;&#x3001;vision_darknet_yolo3&#x9805;&#x76EE;&#x30C1;&#x30A7;&#x30C3;&#x30AF;BOX&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x3044;&#x3063;&#x305F;&#x3093;&#x5916;&#x3057;&#x3001;&#x518D;&#x5EA6;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3002;</p>
+<pre><code class="lang-ini">[net]
+# Testing
+# batch=1
+# subdivisions=1
+# Training
+batch=64                &#x2190; 32 &#x306B;&#x5909;&#x66F4; &#x30C0;&#x30E1;&#x306A;&#x3089;1&#x306B;&#x3059;&#x308B;
+subdivisions=16         &#x2190; 32 &#x306B;&#x5909;&#x66F4; &#x30C0;&#x30E1;&#x306A;&#x3089;1&#x306B;&#x3059;&#x308B;
+width=608               &#x2190; 416&#x306B;&#x5909;&#x66F4;
+height=608              &#x2190; 416&#x306B;&#x5909;&#x66F4;
+channels=3
+momentum=0.9
+decay=0.0005
+angle=0
+&#xFF1A;
+&#xFF1A;
+</code></pre>
+<h2 id="rviz&#x306E;&#x8A2D;&#x5B9A;&#xFF08;&#x30A4;&#x30E1;&#x30FC;&#x30B8;&#x30D3;&#x30E5;&#x30FC;&#x30A2;&#x30D1;&#x30CD;&#x30EB;&#x306E;&#x8868;&#x793A;&#xFF09;">RViz&#x306E;&#x8A2D;&#x5B9A;&#xFF08;&#x30A4;&#x30E1;&#x30FC;&#x30B8;&#x30D3;&#x30E5;&#x30FC;&#x30A2;&#x30D1;&#x30CD;&#x30EB;&#x306E;&#x8868;&#x793A;&#xFF09;</h2>
+<p>RViz&#x3092;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x3002;</p>
+<p><img src="../img/1300/rviz01.png" alt="img"></p>
+<ol>
+<li>RViz&#x8D77;&#x52D5;&#x5F8C;&#x3001;&#x300C;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x300D;&#xFF0D;&#xFF3B;Panels&#xFF3D;&#xFF0D;&#xFF3B;Add New Panel&#xFF3D;&#x3092;&#x9078;&#x629E;&#x3057;&#x3001;&#x30D1;&#x30CD;&#x30EB;&#x9078;&#x629E;&#x30C0;&#x30A4;&#x30A2;&#x30ED;&#x30B0;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x3002;</li>
+</ol>
+<p><img src="../img/1300/rviz02.png" alt=""></p>
+<ol>
+<li>&#x30D1;&#x30CD;&#x30EB;&#x7A2E;&#x985E;&#x300C;Image Viewer Plugin&#x300D;&#x3092;&#x9078;&#x629E;&#x3059;&#x308B;&#x3002;</li>
+<li>&#xFF3B;OK&#xFF3D;&#x30DC;&#x30BF;&#x30F3;&#x62BC;&#x4E0B;&#x3067;&#x524D;&#x753B;&#x9762;&#x306B;&#x623B;&#x308B;&#x3002;</li>
+</ol>
+<p><img src="../img/1300/rviz03.png" alt="img"></p>
+<ol>
+<li>&#x8FFD;&#x52A0;&#x3057;&#x305F;&#x30D1;&#x30CD;&#x30EB;&#x306E;&#x30A6;&#x30A3;&#x30F3;&#x30C9;&#x30A6;&#x5883;&#x754C;&#x8FBA;&#x308A;&#x3092;&#x30DE;&#x30A6;&#x30B9;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3001;&#x305D;&#x306E;&#x307E;&#x307E;&#x4E0A;&#x3078;&#x30C9;&#x30E9;&#x30C3;&#x30B0;&#x3057;&#x753B;&#x50CF;&#x8868;&#x793A;&#x90E8;&#x5206;&#x3092;&#x898B;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x3002;</li>
+</ol>
+<p><img src="../img/1300/rviz04.png" alt="img"></p>
+<ol>
+<li>&#x753B;&#x9762;&#x306E;&#x30D7;&#x30EB;&#x30C0;&#x30A6;&#x30F3;&#x30E1;&#x30CB;&#x30E5;&#x30FC;&#x304B;&#x3089;&#x4EE5;&#x4E0B;&#x3092;&#x9078;&#x629E;&#x3059;&#x308B;&#x3002;&#xFF08;rosbag&#x518D;&#x751F;&#x4E00;&#x6642;&#x505C;&#x6B62;&#x306E;&#x5834;&#x5408;&#x3001;&#x9078;&#x629E;&#x9805;&#x76EE;&#x304C;&#x898B;&#x3064;&#x304B;&#x3089;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;&#x3044;&#x3063;&#x305F;&#x3093;&#x4E00;&#x6642;&#x505C;&#x6B62;&#x3092;&#x89E3;&#x9664;&#x3057;&#x3001;&#x518D;&#x5EA6;&#x4E00;&#x6642;&#x505C;&#x6B62;&#x3059;&#x308B;&#x3002;&#xFF09;</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th>&#x9805;&#x76EE;&#x540D;</th>
+<th>&#x5185;&#x5BB9;</th>
+<th style="text-align:center">smagv&#x59A5;&#x5F53;&#x5024;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>Image Topic</td>
+<td>&#x753B;&#x50CF;&#x30C7;&#x30FC;&#x30BF;&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x540D;</td>
+<td style="text-align:center">/camera/color/image_raw</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Object Rect Topic</td>
+<td>&#x77E9;&#x5F62;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x540D;</td>
+<td style="text-align:center">/detection/image_detector/objects</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x8A8D;&#x8B58;&#x7D50;&#x679C;&#x306E;&#x78BA;&#x8A8D;">&#x8A8D;&#x8B58;&#x7D50;&#x679C;&#x306E;&#x78BA;&#x8A8D;</h2>
+<p>&#x8A8D;&#x8B58;&#x7D50;&#x679C;&#x306E;&#x7A2E;&#x985E;&#x3068;&#x77E9;&#x5F62;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3002;</p>
+<p><img src="../img/1300/rviz05.png" alt="img"></p>
+<h2 id="&#x305D;&#x306E;&#x4ED6;">&#x305D;&#x306E;&#x4ED6;</h2>
+<ul>
+<li>ROSBAG&#x518D;&#x751F;&#x3092;&#x4E00;&#x6642;&#x505C;&#x6B62;&#x3057;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x518D;&#x751F;&#x518D;&#x958B;&#x3092;&#x3059;&#x308B;&#x3002;</li>
+</ul>
 
                                 
                                 </section>
@@ -455,10 +664,14 @@
 
             
                 
-                <a href="chpt1100.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 11自動経路生成（駐車経路生成）">
+                <a href="chpt1200.html" class="navigation navigation-prev " aria-label="Previous page: 12.物体検出（点群からのクラスタリング）">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="chpt1400.html" class="navigation navigation-next " aria-label="Next page: 14.物体検出（センサフュージョン）">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -467,7 +680,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"13.調整中（lane_planner）","level":"1.14","depth":1,"previous":{"title":"11自動経路生成（駐車経路生成）","level":"1.13","depth":1,"path":"src/md/chpt1100.md","ref":"src/md/chpt1100.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt1300.md","mtime":"2019-09-30T07:47:41.551Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-01T04:11:19.735Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"13.物体検出（画像からのクラスタリング）","level":"1.15","depth":1,"next":{"title":"14.物体検出（センサフュージョン）","level":"1.16","depth":1,"path":"src/md/chpt1400.md","ref":"src/md/chpt1400.md","articles":[]},"previous":{"title":"12.物体検出（点群からのクラスタリング）","level":"1.14","depth":1,"path":"src/md/chpt1200.md","ref":"src/md/chpt1200.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt1300.md","mtime":"2019-10-30T07:39:49.269Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-31T08:08:21.233Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
