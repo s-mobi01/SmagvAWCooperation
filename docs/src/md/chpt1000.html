@@ -672,11 +672,11 @@
 <h3 id="ringgroundfilter">ring_ground_filter</h3>
 <p>&#x70B9;&#x7FA4;&#x306E;&#x30EA;&#x30F3;&#x30B0;&#x5F62;&#x72B6;&#x306E;&#x3082;&#x306E;&#x3092;&#x5730;&#x9762;&#x3068;&#x3057;&#x3066;&#x691C;&#x51FA;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#xFF1F;</p>
 <p><img src="../img/1000/ringgnd.png" alt="img"></p>
-<p>&#x8A2D;&#x5B9A;&#x5024;&#x306F;&#x8ABF;&#x6574;&#x4E2D;</p>
+<p>&#x8A2D;&#x5B9A;&#x5024;&#x306F;&#x8ABF;&#x6574;&#x4E2D;&#x3002;&#xFF08;&#x30BB;&#x30F3;&#x30B5;&#x9AD8;&#x3055;0.965&#x306B;&#x5909;&#x66F4;&#xFF09;</p>
 <h3 id="raygroundfilter">ray_ground_filter</h3>
 <p>&#x653E;&#x5C04;&#x72B6;&#x306E;&#x540C;&#x5FC3;&#x5186;&#x3092;&#x5730;&#x9762;&#x3068;&#x3057;&#x3066;&#x691C;&#x51FA;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#xFF1F;</p>
 <p><img src="../img/1000/raygnd.png" alt="img"></p>
-<p>&#x8A2D;&#x5B9A;&#x5024;&#x306F;&#x8ABF;&#x6574;&#x4E2D;</p>
+<p>&#x8A2D;&#x5B9A;&#x5024;&#x306F;&#x8ABF;&#x6574;&#x4E2D;&#x3002;&#xFF08;&#x30BB;&#x30F3;&#x30B5;&#x9AD8;&#x3055;0.965&#x306B;&#x5909;&#x66F4;&#xFF09;</p>
 <h2 id="agv&#x306E;&#x63A8;&#x5B9A;&#x59FF;&#x52E2;&#x30FB;&#x901F;&#x5EA6;&#x7B97;&#x51FA;&#x306E;&#x8A2D;&#x5B9A;">AGV&#x306E;&#x63A8;&#x5B9A;&#x59FF;&#x52E2;&#x30FB;&#x901F;&#x5EA6;&#x7B97;&#x51FA;&#x306E;&#x8A2D;&#x5B9A;</h2>
 <p>AGV&#x306E;&#x63A8;&#x5B9A;&#x59FF;&#x52E2;&#x30FB;&#x901F;&#x5EA6;&#x7B97;&#x51FA;&#x306E;&#x305F;&#x3081;&#x3001;&#xFF62;vel_pose_connect&#xFF63;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x3001;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3002;</p>
 <p>&#x8A73;&#x7D30;&#x306F;&#x524D;&#x7AE0;&#x53C2;&#x7167;&#x306E;&#x3053;&#x3068;&#x3002;</p>
@@ -702,6 +702,7 @@
 <li>&#xFF3B;OK&#xFF3D;&#x30DC;&#x30BF;&#x30F3;&#x62BC;&#x4E0B;&#x3067;&#x524D;&#x753B;&#x9762;&#x306B;&#x623B;&#x308B;&#x3002;</li>
 </ol>
 <p>&#x3000;</p>
+<p>&#x30D1;&#x30E9;&#x30E1;&#x30BF;&#x306B;&#x306F;&#x4EE5;&#x964D;&#x306E;&#x7AE0;&#x3067;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x7269;&#x4F53;&#x691C;&#x51FA;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3002;&#x3069;&#x306E;&#x7269;&#x4F53;&#x691C;&#x51FA;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x304B;&#x306F;&#x9069;&#x5B9C;&#x691C;&#x8A0E;&#x306E;&#x4E8B;&#x3002;</p>
 <table>
 <thead>
 <tr>
@@ -716,15 +717,77 @@
 <tbody>
 <tr>
 <td style="text-align:center">1</td>
-<td>&#x8ABF;&#x6574;&#x4E2D;</td>
+<td>use_object_box</td>
+<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;</td>
+<td>-</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>use_points</td>
+<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;</td>
+<td>&#x203B;</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>objects_input</td>
+<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">&#x4EFB;&#x610F;</td>
+<td>&#x203B;</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>points_input</td>
+<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/points_no_ground</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>lide_frame</td>
+<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/velodyne</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>map_frame</td>
+<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/map</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>&#x305D;&#x306E;&#x4ED6;&#x691C;&#x8A0E;&#x4E2D;</td>
 <td></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
-<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 </tr>
 </tbody>
 </table>
-<p>&#x3000; <img src="../img/1000/tabcmp02.png" alt=""></p>
+<p>&#x203B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;&#x306E;&#x5834;&#x5408;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3044;&#x305A;&#x308C;&#x304B;&#x3092;&#x9078;&#x629E;</p>
+<ul>
+<li>&#x7AE0;12.&#x70B9;&#x7FA4;&#x304B;&#x3089;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;/detection/lidar_detector/objects&#xFF09;&#xFF08;&#x51E6;&#x7406;&#x304C;&#x8EFD;&#x3044;&#x306E;&#x3067;&#x304A;&#x52E7;&#x3081;&#xFF09;</li>
+<li>&#x7AE0;13.&#x753B;&#x50CF;&#x304B;&#x3089;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;/detection/image_detector/objects&#xFF09;</li>
+<li>&#x7AE0;14.&#x30BB;&#x30F3;&#x30B5;&#x30D5;&#x30E5;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;/detection/fusion_tools/objects&#xFF09;</li>
+<li>&#x7AE0;15.&#x30AF;&#x30E9;&#x30B9;&#x30BF;&#x30C8;&#x30E9;&#x30C3;&#x30AD;&#x30F3;&#x30B0;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;/detection/object_tracker/objects&#xFF09;</li>
+</ul>
+<p><img src="../img/1000/tabcmp02.png" alt=""></p>
 <ol>
 <li>costmap_generator&#x9805;&#x76EE;&#x30C1;&#x30A7;&#x30C3;&#x30AF;BOX&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3002;</li>
 </ol>
@@ -877,7 +940,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"10.経路の自動走行（障害物回避）","level":"1.12","depth":1,"next":{"title":"11.自動経路生成（駐車経路生成）","level":"1.13","depth":1,"path":"src/md/chpt1100.md","ref":"src/md/chpt1100.md","articles":[]},"previous":{"title":"9.経路の自動走行（障害物検知で停止）","level":"1.11","depth":1,"path":"src/md/chpt0900.md","ref":"src/md/chpt0900.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt1000.md","mtime":"2019-10-30T01:18:20.221Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-07T07:57:52.689Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10.経路の自動走行（障害物回避）","level":"1.12","depth":1,"next":{"title":"11.自動経路生成（駐車経路生成）","level":"1.13","depth":1,"path":"src/md/chpt1100.md","ref":"src/md/chpt1100.md","articles":[]},"previous":{"title":"9.経路の自動走行（障害物検知で停止）","level":"1.11","depth":1,"path":"src/md/chpt0900.md","ref":"src/md/chpt0900.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"livereload":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt1000.md","mtime":"2019-12-04T07:27:16.177Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-04T07:39:33.523Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -900,6 +963,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

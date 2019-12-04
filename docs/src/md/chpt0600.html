@@ -404,7 +404,7 @@
 <h2 id="baselink-to-localizer&#x306E;&#x8A2D;&#x5B9A;&#xFF08;&#x4EFB;&#x610F;&#xFF09;">Baselink to Localizer&#x306E;&#x8A2D;&#x5B9A;&#xFF08;&#x4EFB;&#x610F;&#xFF09;</h2>
 <p>base_link&#x304B;&#x3089;&#x898B;&#x305F;&#x3001;lider&#xFF08;points_raw&#xFF09;&#x306E;TF&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;</p>
 <p>&#x70B9;&#x7FA4;&#x5730;&#x56F3;&#x4F5C;&#x6210;&#x6642;&#x306B;&#x306F;<strong><em>&#x5FC5;&#x9808;&#x3067;&#x306F;&#x306A;&#x3044;</em></strong>&#x304C;&#x3001;NDT&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x304C;&#x6B63;&#x5E38;&#x52D5;&#x4F5C;&#x3057;&#x306A;&#x3044;&#x3053;&#x3068;&#x3042;&#x308B;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;NDT&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x306E;&#x969B;&#x306B;&#x672C;&#x9805;&#x76EE;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x5BFE;&#x5FDC;&#x304C;&#x53EF;&#x80FD;&#x306A;&#x305F;&#x3081;&#x9069;&#x5B9C;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;</p>
-<p>&#xFF08;NDT&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x306E;&#x969B;&#x306B;&#x672C;&#x9805;&#x76EE;&#x3092;&#x8A2D;&#x5B9A;&#x3088;&#x3046;&#x306B;&#x3057;&#x305F;&#x65B9;&#x304C;&#x3088;&#x3044;&#xFF01;&#xFF1F;&#xFF09;</p>
+<p><strong>&#xFF08;NDT&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x306E;&#x969B;&#x306B;&#x672C;&#x9805;&#x76EE;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x305F;&#x65B9;&#x304C;&#x3088;&#x3044;&#xFF01;&#xFF1F;&#xFF09;</strong></p>
 <p><img src="../img/0700/tabsetup.png" alt="img"></p>
 <ol>
 <li>Runtime Manager&#x306E;&#xFF3B;Setup&#xFF3D;&#x30BF;&#x30D6;&#x3092;&#x9078;&#x629E;&#x3002;</li>
@@ -418,33 +418,51 @@
 <tr>
 <th style="text-align:center">#</th>
 <th>&#x6A5F;&#x7A2E;</th>
-<th>tf_x</th>
-<th>tf_z</th>
+<th style="text-align:center">tf_x</th>
+<th style="text-align:center">tf_z</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">1</td>
-<td>SMAGV&#xFF08;HDL32E&#x8A2D;&#x7F6E;&#x6642;&#xFF09;</td>
-<td>0.255</td>
-<td>0.836</td>
+<td style="text-align:center"><del>1</del></td>
+<td><del>SMAGV&#xFF08;HDL32E&#x8A2D;&#x7F6E;&#x6642;&#xFF09;&#xFF08;base_footprint&#x3042;&#x308A;&#xFF09;</del></td>
+<td style="text-align:center"><del>0.255</del></td>
+<td style="text-align:center"><del>0.836</del></td>
+<td><del>base_footprint&#x3042;&#x308A;&#xFF08;base_link&#x304C;&#x8ECA;&#x8EF8;&#x4E2D;&#x592E;&#xFF09;</del></td>
 </tr>
 <tr>
-<td style="text-align:center">2</td>
-<td>SMAGV&#xFF08;VLP16&#x8A2D;&#x7F6E;&#x6642;&#xFF09;</td>
-<td>0.232</td>
-<td>0.666</td>
+<td style="text-align:center"><del>2</del></td>
+<td><del>&#x2191;</del></td>
+<td style="text-align:center"><del>&#x2191;</del></td>
+<td style="text-align:center"><del>1.031</del></td>
+<td><del>base_footprint&#x306A;&#x3057;&#xFF08;base_link&#x304C;&#x5730;&#x9762;&#xFF09;</del></td>
 </tr>
 <tr>
 <td style="text-align:center">3</td>
+<td>SMAGV&#xFF08;VLP16&#x8A2D;&#x7F6E;&#x6642;&#xFF09;</td>
+<td style="text-align:center">0.232</td>
+<td style="text-align:center">0.770</td>
+<td>base_footprint&#x3042;&#x308A;&#xFF08;base_link&#x304C;&#x8ECA;&#x8EF8;&#x4E2D;&#x592E;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>&#x2191;</td>
+<td style="text-align:center">&#x2191;</td>
+<td style="text-align:center">0.965</td>
+<td>base_footprint&#x306A;&#x3057;&#xFF08;base_link&#x304C;&#x5730;&#x9762;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
 <td>LogieeS-TC</td>
-<td>0.74</td>
-<td>0.32</td>
+<td style="text-align:center">0.74</td>
+<td style="text-align:center">0.32</td>
 </tr>
 </tbody>
 </table>
 <h2 id="vehicle-model&#x306E;&#x8A2D;&#x5B9A;&#xFF08;&#x4EFB;&#x610F;&#xFF09;">Vehicle Model&#x306E;&#x8A2D;&#x5B9A;&#xFF08;&#x4EFB;&#x610F;&#xFF09;</h2>
 <p>RViz&#x306B;&#x8868;&#x793A;&#x3059;&#x308B;Vehicle Model&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;&#xFF08;&#x8868;&#x793A;&#x304C;&#x5FC5;&#x8981;&#x306A;&#x5834;&#x5408;&#x306E;&#x307F;&#xFF09;</p>
+<p><strong>&#xFF08;smagv&#x306E;&#x5834;&#x5408;&#x3067;&#x306F;&#x73FE;&#x72B6;&#x3001;&#x8D77;&#x52D5;launch&#x3067;&#x767A;&#x884C;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x306F;&#x305F;&#x3076;&#x3093;&#x4E0D;&#x8981;&#x3002;Logiee&#x306E;&#x5834;&#x5408;&#x306F;&#x767A;&#x884C;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x306E;&#x3067;&#x9069;&#x5B9C;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;&#xFF09;</strong></p>
 <p><img src="../img/0600/tabsetup.png" alt="img"></p>
 <ol>
 <li>Runtime Manager&#x306E;&#xFF3B;Setup&#xFF3D;&#x30BF;&#x30D6;&#x3092;&#x9078;&#x629E;&#x3002;</li>
@@ -452,6 +470,11 @@
 <li>Vehicle Model&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#xFF3B;Vehicle Model&#xFF3D;&#x30DC;&#x30BF;&#x30F3;&#x62BC;&#x4E0B;&#x3067;&#x78BA;&#x5B9A;&#x3059;&#x308B;&#x3002;</li>
 <li>&#x62BC;&#x4E0B;&#x5F8C;&#x3001;&#x30DC;&#x30BF;&#x30F3;&#x8272;&#x53CD;&#x8EE2;&#x3059;&#x308B;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3002;</li>
 </ol>
+<p>&#x203B;smagv&#x306E;&#x5834;&#x5408;&#x306F;&#x3001;urdf.xacro&#x3067;&#x30ED;&#x30DC;&#x30C3;&#x30C8;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;Autoware&#x3067;&#x306F;xacro&#x304C;&#xFF08;&#x305F;&#x3076;&#x3093;&#xFF09;&#x4F7F;&#x3048;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;&#x5225;&#x9014;urdf&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3002;</p>
+<p>urdf.xacro&#x304B;&#x3089;&#x3001;urdf&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x30FB;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x4F8B;&#x3092;&#x4EE5;&#x4E0B;&#x306B;&#x793A;&#x3059;&#x3002;</p>
+<pre><code class="lang-command">$ rosrun xacro xacro smagv.urdf.xacro --inorder &gt;smagv.urdf
+$ check_urdf smagv.urdf
+</code></pre>
 <h2 id="ndt-mapping&#x306E;&#x8A2D;&#x5B9A;">NDT mapping&#x306E;&#x8A2D;&#x5B9A;</h2>
 <p>NDT mapping&#x306E;&#x8A2D;&#x5B9A;&#x3092;&#x884C;&#x3046;&#x3002;</p>
 <p><img src="../img/0600/tabcmp01.png" alt="img"></p>
@@ -468,7 +491,7 @@
 <table>
 <thead>
 <tr>
-<th>#</th>
+<th style="text-align:center">#</th>
 <th>&#x9805;&#x76EE;&#x540D;</th>
 <th>&#x5185;&#x5BB9;</th>
 <th style="text-align:center">&#x5358;&#x4F4D;</th>
@@ -477,63 +500,85 @@
 </thead>
 <tbody>
 <tr>
-<td>1</td>
+<td style="text-align:center">1</td>
 <td>Resolution</td>
 <td>&#x5730;&#x56F3;&#x30C7;&#x30FC;&#x30BF;&#x3092;NDT&#x306E;&#x30DC;&#x30AF;&#x30BB;&#x30EB;&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;&#x969B;&#x306E;&#x30DC;&#x30AF;&#x30BB;&#x30EB;&#xFF11;&#x8FBA;&#x306E;&#x9577;&#x3055;&#x3092;&#x6307;&#x5B9A;&#x3002;&#x5E02;&#x8857;&#x5730;&#x3067;&#x306F;&#xFF11;m&#x7A0B;&#x5EA6;&#x304C;&#x59A5;&#x5F53;&#x3002;</td>
 <td style="text-align:center">m</td>
 <td>1</td>
 </tr>
 <tr>
-<td>2</td>
+<td style="text-align:center">2</td>
 <td>Step Size</td>
 <td>&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x306E;&#x8A08;&#x7B97;&#x3067;&#x3001;&#x30CE;&#x30FC;&#x30C9;&#x5185;&#x90E8;&#x3067;&#x306F;&#x76F4;&#x7DDA;&#x63A2;&#x7D22;&#x6CD5;&#x306B;&#x3088;&#x3063;&#x3066;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x8A08;&#x7B97;&#x3092;&#x884C;&#x3063;&#x3066;&#x3044;&#x308B;&#x3002;&#x305D;&#x306E;&#x969B;&#x306E;&#x30B9;&#x30C6;&#x30C3;&#x30D7;&#x5E45;&#x3092;&#x8868;&#x3059;&#x3002;</td>
 <td style="text-align:center">-</td>
 <td>0.1</td>
 </tr>
 <tr>
-<td>3</td>
+<td style="text-align:center">3</td>
 <td>Transformation Epsilon</td>
 <td>&#x30B9;&#x30AD;&#x30E3;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x30F3;&#x30B0;&#x306E;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x8A08;&#x7B97;&#x306E;&#x53CE;&#x675F;&#x6761;&#x4EF6;&#x3092;&#x8A2D;&#x5B9A;&#x3002;</td>
 <td style="text-align:center">-</td>
 <td>0.01</td>
 </tr>
 <tr>
-<td>4</td>
+<td style="text-align:center">4</td>
 <td>Maximum Iteration</td>
 <td>&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x8A08;&#x7B97;&#x306B;&#x304A;&#x3051;&#x308B;&#x3001;&#x6700;&#x5927;&#x306E;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x6570;&#x3092;&#x8868;&#x3059;&#x3002;&#x53CE;&#x675F;&#x6761;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3055;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x3053;&#x306E;&#x6570;&#x5024;&#x306E;&#x56DE;&#x6570;&#x3060;&#x3051;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x8A08;&#x7B97;&#x3092;&#x884C;&#x3063;&#x305F;&#x3089;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x8A08;&#x7B97;&#x3092;&#x6253;&#x3061;&#x5207;&#x308B;&#x3002;</td>
 <td style="text-align:center">&#x56DE;</td>
 <td>30</td>
 </tr>
 <tr>
-<td>5</td>
+<td style="text-align:center">5</td>
 <td>Leaf Size</td>
 <td>&#x30B9;&#x30AD;&#x30E3;&#x30F3;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x30C0;&#x30A6;&#x30F3;&#x30B5;&#x30F3;&#x30D7;&#x30EA;&#x30F3;&#x30B0;&#x30B5;&#x30A4;&#x30BA;&#x3002;</td>
 <td style="text-align:center">m</td>
 <td>1</td>
 </tr>
 <tr>
-<td>6</td>
+<td style="text-align:center">6</td>
 <td>Minimum Scan Range</td>
 <td>&#x7279;&#x5B9A;&#x306E;&#x8DDD;&#x96E2;&#x3088;&#x308A;&#x3082;&#x8FD1;&#x3044;&#x30B9;&#x30AD;&#x30E3;&#x30F3;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3092;&#x7121;&#x8996;&#x3059;&#x308B;&#x3002;&#xFF08;&#x53D6;&#x308A;&#x4ED8;&#x3051;&#x305F;&#x8ECA;&#x4F53;&#x3092;Lider&#x304C;&#x691C;&#x77E5;&#x3057;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x3002;&#xFF09;</td>
 <td style="text-align:center">m</td>
 <td>0.5</td>
 </tr>
 <tr>
-<td>7</td>
+<td style="text-align:center">7</td>
 <td>Maximum Scan Range</td>
 <td>&#x7279;&#x5B9A;&#x306E;&#x8DDD;&#x96E2;&#x3088;&#x308A;&#x3082;&#x9060;&#x3044;&#x30B9;&#x30AD;&#x30E3;&#x30F3;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3092;&#x7121;&#x8996;&#x3059;&#x308B;&#x3002;</td>
 <td style="text-align:center">&#xFF4D;</td>
 <td>100</td>
 </tr>
 <tr>
-<td>8</td>
+<td style="text-align:center">8</td>
 <td>Minimum Add Scan Shift</td>
 <td>Lider&#x70B9;&#x7FA4;&#x3092;&#x5730;&#x56F3;&#x3068;&#x3057;&#x3066;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x983B;&#x5EA6;&#xFF08;&#x79FB;&#x52D5;&#x8DDD;&#x96E2;&#xFF09;&#x3002;0&#x306E;&#x5834;&#x5408;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;SCAN&#x30C7;&#x30FC;&#x30BF;&#x3002;&#xFF08;&#x5C0F;&#x3055;&#x304F;&#x3059;&#x308B;&#x3068;&#x51E6;&#x7406;&#x304C;&#x91CD;&#x304F;&#x306A;&#x308B;&#x3002;&#xFF09;</td>
 <td style="text-align:center">m</td>
 <td>0.5&#xFF5E;1.5</td>
 </tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>Use Odometry</td>
+<td>MAP&#x4F5C;&#x6210;&#x306B;&#x30AA;&#x30C9;&#x30E1;&#x30C8;&#x30EA;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5229;&#x7528;&#x6709;&#x7121;&#x3092;&#x8A2D;&#x5B9A;&#x3002;&#xFF08;&#x6CE8;&#xFF1A; /vehicle/odom&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;&#xFF09;</td>
+<td style="text-align:center">-</td>
+<td>&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>Use IMU</td>
+<td>MAP&#x4F5C;&#x6210;&#x306B;IMU&#x30BB;&#x30F3;&#x30B5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5229;&#x7528;&#x6709;&#x7121;&#x3092;&#x8A2D;&#x5B9A;&#x3002;</td>
+<td style="text-align:center">-</td>
+<td>&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>IMU topic</td>
+<td>IMU&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x540D;&#x3092;&#x9078;&#x629E;&#x3059;&#x308B;&#x3002;&#xFF08;&#x30AF;&#x30A9;&#x30FC;&#x30BF;&#x30CB;&#x30AA;&#x30F3;&#xFF08;orientation&#xFF09;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x3002;/imu/raw&#x30C7;&#x30FC;&#x30BF;&#x3067;&#x306F;&#x305F;&#x3076;&#x3093;&#x30C0;&#x30E1;&#xFF09;</td>
+<td style="text-align:center">-</td>
+<td>/imu/data</td>
+</tr>
 </tbody>
 </table>
+<p>&#x203B;Odometry&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x540D;&#x304C;&#x300C;/vehicle/odom&#x300D;&#x3067;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;Use Odometry&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3068;&#x8FD4;&#x3063;&#x3066;&#x30BA;&#x30EC;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x9069;&#x5B9C;&#x8ABF;&#x6574;&#x3059;&#x308B;&#x3002;</p>
 <p><img src="../img/0600/tabcmp02.png" alt="img"></p>
 <ol>
 <li>ndt_map&#x9805;&#x76EE;&#x30C1;&#x30A7;&#x30C3;&#x30AF;BOX&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3002;</li>
@@ -630,7 +675,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.点群地図の作成","level":"1.8","depth":1,"next":{"title":"7.AGVの自己位置推定","level":"1.9","depth":1,"path":"src/md/chpt0700.md","ref":"src/md/chpt0700.md","articles":[]},"previous":{"title":"5.ROSBAGの取得","level":"1.7","depth":1,"path":"src/md/chpt0500.md","ref":"src/md/chpt0500.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0600.md","mtime":"2019-11-07T05:51:00.060Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-07T07:57:52.689Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.点群地図の作成","level":"1.8","depth":1,"next":{"title":"7.AGVの自己位置推定","level":"1.9","depth":1,"path":"src/md/chpt0700.md","ref":"src/md/chpt0700.md","articles":[]},"previous":{"title":"5.ROSBAGの取得","level":"1.7","depth":1,"path":"src/md/chpt0500.md","ref":"src/md/chpt0500.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"livereload":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0600.md","mtime":"2019-12-04T02:11:17.525Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-04T07:39:33.523Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -653,6 +698,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
