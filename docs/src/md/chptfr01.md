@@ -12,7 +12,7 @@
 |  2   | Stopline Search Radius    | 経路上で停止線を探索する半径を指定する。                     |   m   | ？          |
 |  3   | Number of Zero Ahead      | 停止線の前に置く速度0のwaypointの数を指定する。              |  個   | ？          |
 |  4   | Number of Zero Behind     | 停止線の後ろに置く速度0のwaypointの数を指定する。            |  個   | ？          |
-|  5   | number_of_smoothing_count | 速度を修正するwaipointの数を指定する。                       |  個   | ？          |
+|  5   | number_of_smoothing_count | 速度を修正するwaypointの数を指定する。                       |  個   | ？          |
 
 
 
