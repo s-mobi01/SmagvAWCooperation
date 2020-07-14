@@ -397,18 +397,26 @@
 <p><img src="../img/0400/0401.png" alt="img"></p>
 <ul>
 <li>&#x56DE;&#x7DDA;&#x672A;&#x63A5;&#x7D9A;&#x72B6;&#x614B;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3002;&#xFF08;&#x4E0A;&#x56F3;&#xFF0D;wlan&#x672A;&#x63A5;&#x7D9A;&#x6642;&#xFF09;</li>
+</ul>
+<p>&#x30A2;&#x30A4;&#x30B3;&#x30F3;&#x53F3;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3067;&#x5BFE;&#x8C61;&#x306E;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x304B;&#x3089;&#x300C;&#x5207;&#x65AD;&#x3059;&#x308B;&#x300D;&#x3092;&#x9078;&#x629E;&#x3059;&#x308B;&#x3002;&#x307E;&#x305F;&#x306F;&#x4EE5;&#x4E0B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3002;</p>
+<p>&#x203B;eth&#x540D;&#x306F;PC&#x306B;&#x3088;&#x3063;&#x3066;&#x7570;&#x306A;&#x308B;&#x3002;SMAGV&#x306B;&#x306F;USB-LAN&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#xFF08;enx0090ccefc089&#xFF09;&#x304C;&#x63A5;&#x7D9A;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x305D;&#x306E;&#x6A5F;&#x5668;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3092;&#x63A8;&#x5968;&#x3059;&#x308B;&#x3002;&#xFF08;ifconfig&#x3067;&#x6A5F;&#x5668;&#x540D;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;&#xFF09;</p>
+<pre><code># enx0090ccefc089 : eth&#x540D;&#xFF08;PC&#x306B;&#x3088;&#x3063;&#x3066;&#x7570;&#x306A;&#x308B;&#x306E;&#x3067;&#x9069;&#x5B9C;&#x8ABF;&#x6574;&#x3059;&#x308B;&#xFF09;
+
+$ nmcli device disconnect enx0090ccefc089
+</code></pre><p>$ sudo ifconfig enp3s0f1 down  &#x3060;&#x3068;&#x3046;&#x307E;&#x304F;&#x52D5;&#x304B;&#x306A;&#x3044;&#x3068;&#x304D;&#x304C;&#x3042;&#x308B;&#x3002;</p>
+<ul>
 <li>&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3001;IP&#x30A2;&#x30C9;&#x30EC;&#x30B9;&#x8A2D;&#x5B9A;&#x3092;&#x884C;&#x3046;&#x3002;</li>
 </ul>
-<pre><code class="lang-command"># enp3s0f1 : eth&#x540D;&#xFF08;PC&#x306B;&#x3088;&#x3063;&#x3066;&#x7570;&#x306A;&#x308B;&#x306E;&#x3067;&#x9069;&#x5B9C;&#x8ABF;&#x6574;&#x3059;&#x308B;&#xFF09;
+<pre><code class="lang-command"># enx0090ccefc089 : eth&#x540D;&#xFF08;PC&#x306B;&#x3088;&#x3063;&#x3066;&#x7570;&#x306A;&#x308B;&#x306E;&#x3067;&#x9069;&#x5B9C;&#x8ABF;&#x6574;&#x3059;&#x308B;&#xFF09;
 
-$ sudo ifconfig enp3s0f1 192.168.1.100          &#x2190; PC&#x5074;IP Addr.&#x8A2D;&#x5B9A;
-$ sudo route add 192.168.1.201 enp3s0f1         &#x2190; Velodne&#x3078;&#x306E;&#x30EB;&#x30FC;&#x30C8;&#x8A2D;&#x5B9A;
+$ sudo ifconfig enx0090ccefc089 192.168.1.100          &#x2190; PC&#x5074;IP Addr.&#x8A2D;&#x5B9A;
+$ sudo route add 192.168.1.201 enx0090ccefc089         &#x2190; Velodne&#x3078;&#x306E;&#x30EB;&#x30FC;&#x30C8;&#x8A2D;&#x5B9A;
 </code></pre>
 <h2 id="smagv&#x306E;&#x8D77;&#x52D5;">SMAGV&#x306E;&#x8D77;&#x52D5;</h2>
 <ul>
 <li>&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3001;launch&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3002;</li>
 </ul>
-<pre><code class="lang-command">$ roslaunch smagv_common VLP16test.launch      &#x2190; &#x4EEE;&#x30D5;&#x30A1;&#x30A4;&#x30EB;
+<pre><code class="lang-command">$ roslaunch smagv_common test_start.launch      &#x2190; &#x4EEE;&#x30D5;&#x30A1;&#x30A4;&#x30EB;
 </code></pre>
 <h2 id="autoware&#x306E;&#x8D77;&#x52D5;">Autoware&#x306E;&#x8D77;&#x52D5;</h2>
 <ul>
@@ -464,7 +472,7 @@ $ ./run
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.システムの起動","level":"1.6","depth":1,"next":{"title":"5.ROSBAGの取得","level":"1.7","depth":1,"path":"src/md/chpt0500.md","ref":"src/md/chpt0500.md","articles":[]},"previous":{"title":"3.環境変数の設定","level":"1.5","depth":1,"path":"src/md/chpt0300.md","ref":"src/md/chpt0300.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0400.md","mtime":"2019-09-24T02:39:26.654Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-06T00:33:23.493Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.システムの起動","level":"1.6","depth":1,"next":{"title":"5.ROSBAGの取得","level":"1.7","depth":1,"path":"src/md/chpt0500.md","ref":"src/md/chpt0500.md","articles":[]},"previous":{"title":"3.環境変数の設定","level":"1.5","depth":1,"path":"src/md/chpt0300.md","ref":"src/md/chpt0300.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0400.md","mtime":"2020-04-10T01:54:09.484Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-14T01:35:26.633Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

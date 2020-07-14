@@ -420,7 +420,7 @@
 <th>&#x6A5F;&#x7A2E;</th>
 <th style="text-align:center">tf_x</th>
 <th style="text-align:center">tf_z</th>
-<th></th>
+<th>&#x5099;&#x8003;</th>
 </tr>
 </thead>
 <tbody>
@@ -450,13 +450,21 @@
 <td>&#x2191;</td>
 <td style="text-align:center">&#x2191;</td>
 <td style="text-align:center">0.965</td>
-<td>base_footprint&#x306A;&#x3057;&#xFF08;base_link&#x304C;&#x5730;&#x9762;&#xFF09;</td>
+<td>base_footprint&#x306A;&#x3057;&#xFF08;base_link&#x304C;&#x8ECA;&#x8EF8;&#x76F4;&#x4E0B;&#x306E;&#x5730;&#x9762;&#xFF09;</td>
 </tr>
 <tr>
 <td style="text-align:center">5</td>
 <td>LogieeS-TC</td>
 <td style="text-align:center">0.74</td>
 <td style="text-align:center">0.32</td>
+<td>&#xFF0D;</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>Thouzer</td>
+<td style="text-align:center">0.535</td>
+<td style="text-align:center">0.91</td>
+<td>&#xFF0D;</td>
 </tr>
 </tbody>
 </table>
@@ -578,7 +586,7 @@ $ check_urdf smagv.urdf
 </tr>
 </tbody>
 </table>
-<p>&#x203B;Odometry&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x540D;&#x304C;&#x300C;/vehicle/odom&#x300D;&#x3067;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;Use Odometry&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3068;&#x8FD4;&#x3063;&#x3066;&#x30BA;&#x30EC;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x9069;&#x5B9C;&#x8ABF;&#x6574;&#x3059;&#x308B;&#x3002;</p>
+<p>&#x203B;Odometry&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x540D;&#x304C;&#x300C;/vehicle/odom&#x300D;&#x3067;&#x306A;&#x3044;&#x5834;&#x5408;&#x3001;Use Odometry&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3068;&#x9006;&#x306B;&#x30BA;&#x30EC;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x9069;&#x5B9C;&#x8ABF;&#x6574;&#x3059;&#x308B;&#x3002;</p>
 <p><img src="../img/0600/tabcmp02.png" alt="img"></p>
 <ol>
 <li>ndt_map&#x9805;&#x76EE;&#x30C1;&#x30A7;&#x30C3;&#x30AF;BOX&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3042;&#x308A;&#x306B;&#x3059;&#x308B;&#x3002;</li>
@@ -631,6 +639,7 @@ $ check_urdf smagv.urdf
 <li>&#x4F5C;&#x6210;&#x3057;&#x305F;&#x5730;&#x56F3;&#x306F;&#x3001;&#x4F5C;&#x6210;&#x3092;&#x958B;&#x59CB;&#x3057;&#x305F;&#x7B87;&#x6240;&#x304C;&#x539F;&#x70B9;&#x3068;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3002;</li>
 <li>&#x4F5C;&#x6210;&#x3057;&#x305F;&#x5730;&#x56F3;&#x3092;&#x81EA;&#x5DF1;&#x4F4D;&#x7F6E;&#x63A8;&#x5B9A;&#x306B;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#xFF3B;Map&#xFF3D;&#x30BF;&#x30D6;&#xFF3B;TF&#xFF3D;&#x9805;&#x76EE;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3002;</li>
 <li>&#x65CB;&#x56DE;&#x52D5;&#x4F5C;&#x3084;&#x3001;&#x30B9;&#x30D4;&#x30FC;&#x30C9;&#x304C;&#x901F;&#x3044;&#x3068;MAP&#x751F;&#x6210;&#x3067;&#x30BA;&#x30EC;&#x304C;&#x767A;&#x751F;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;&#x65CB;&#x56DE;&#x52D5;&#x4F5C;&#x306F;&#x5C11;&#x306A;&#x304F;&#x3001;&#x3086;&#x3063;&#x304F;&#x308A;&#x306E;&#x30B9;&#x30D4;&#x30FC;&#x30C9;&#x3067;&#x4F5C;&#x6210;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x3002;</li>
+<li>ROSBAG&#x53D6;&#x5F97;&#x306E;&#x969B;&#x306B;&#x3001;RViz&#x3092;&#x540C;&#x6642;&#x7ACB;&#x4E0A;&#x3052;&#x3057;&#x3066;&#x3044;&#x308B;&#x3068;PC&#x306B;&#x5927;&#x304D;&#x306A;&#x8CA0;&#x8377;&#x304C;&#x304B;&#x304B;&#x308A;&#x3001;&#x70B9;&#x7FA4;&#x30C7;&#x30FC;&#x30BF;&#x7B49;&#x306B;&#x9045;&#x5EF6;&#x304C;&#x767A;&#x751F;&#x3059;&#x308B;&#x305F;&#x3081;&#x4E0D;&#x78BA;&#x5B9F;&#x306A;&#x3082;&#x306E;&#x3068;&#x306A;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308B;&#x3002;ROSBAG&#x53D6;&#x5F97;&#x6642;&#x306F;RViz&#x3092;&#x7ACB;&#x4E0A;&#x3052;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x3002;</li>
 </ul>
 
                                 
@@ -675,7 +684,7 @@ $ check_urdf smagv.urdf
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.点群地図の作成","level":"1.8","depth":1,"next":{"title":"7.AGVの自己位置推定","level":"1.9","depth":1,"path":"src/md/chpt0700.md","ref":"src/md/chpt0700.md","articles":[]},"previous":{"title":"5.ROSBAGの取得","level":"1.7","depth":1,"path":"src/md/chpt0500.md","ref":"src/md/chpt0500.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0600.md","mtime":"2019-12-10T00:05:18.415Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-06T00:33:23.493Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.点群地図の作成","level":"1.8","depth":1,"next":{"title":"7.AGVの自己位置推定","level":"1.9","depth":1,"path":"src/md/chpt0700.md","ref":"src/md/chpt0700.md","articles":[]},"previous":{"title":"5.ROSBAGの取得","level":"1.7","depth":1,"path":"src/md/chpt0500.md","ref":"src/md/chpt0500.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0600.md","mtime":"2020-07-14T01:28:15.325Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-14T01:35:26.633Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
