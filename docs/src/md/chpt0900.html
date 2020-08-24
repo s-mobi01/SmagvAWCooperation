@@ -407,20 +407,26 @@ AGV&#x672C;&#x4F53;&#xFF08;&#x8ECA;&#x4F53;&#xFF09;&#x3092;&#x969C;&#x5BB3;&#x72
 <tr>
 <td>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;</td>
 <td>velocity_set.launch</td>
-<td>-</td>
+<td>&#x203B;</td>
 </tr>
 <tr>
 <td>&#x683C;&#x7D0D;&#x5148;</td>
-<td>~/Autoware/ros/install/waypoint_planner/share/waypoint_planner/launch</td>
+<td>~/Autoware/ros/src/computing/planning/motion/packages/astar_planner/launch</td>
+<td>1.10.0</td>
+</tr>
+<tr>
+<td>&#x3003;</td>
+<td>~/autoware.ai/ros/install/waypoint_planner/share/waypoint_planner/launch</td>
 <td>1.11.1</td>
 </tr>
 <tr>
 <td>&#x3003;</td>
-<td>~/Autoware/ros/src/computing/planning/motion/packages/astar_planner/launch</td>
-<td>1.10.0</td>
+<td>~/autoware.ai/install/waypoint_planner/share/waypoint_planner/launch</td>
+<td>1.12.0&#x3001;1.13.0</td>
 </tr>
 </tbody>
 </table>
+<p>&#x203B; 1.13.0 &#x306E;&#x5834;&#x5408;&#x306F;&#x3001;&#x305D;&#x306E;&#x4ED6;&#x300C;velocity_set_xxxx.launch&#x300D;&#x3082;&#x540C;&#x69D8;&#x306B;&#x300C;remove_points_upto&#x300D;&#x9805;&#x76EE;&#x306E;&#x5909;&#x66F4;&#x304C;&#x5FC5;&#x8981;&#x3002;</p>
 <p>&#x5909;&#x66F4;&#x5185;&#x5BB9;</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">launch</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;use_crosswalk_detection&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
@@ -1042,7 +1048,7 @@ AGV&#x672C;&#x4F53;&#xFF08;&#x8ECA;&#x4F53;&#xFF09;&#x3092;&#x969C;&#x5BB3;&#x72
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.経路の自動走行（障害物検知で停止）","level":"1.11","depth":1,"next":{"title":"10.経路の自動走行（障害物回避）","level":"1.12","depth":1,"path":"src/md/chpt1000.md","ref":"src/md/chpt1000.md","articles":[]},"previous":{"title":"8.経路設定ファイル作成","level":"1.10","depth":1,"path":"src/md/chpt0800.md","ref":"src/md/chpt0800.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0900.md","mtime":"2019-12-04T02:27:23.598Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-30T23:36:58.904Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.経路の自動走行（障害物検知で停止）","level":"1.11","depth":1,"next":{"title":"10.経路の自動走行（障害物回避）","level":"1.12","depth":1,"path":"src/md/chpt1000.md","ref":"src/md/chpt1000.md","articles":[]},"previous":{"title":"8.経路設定ファイル作成","level":"1.10","depth":1,"path":"src/md/chpt0800.md","ref":"src/md/chpt0800.md","articles":[]},"dir":"ltr"},"config":{"plugins":["hide-published-with","-sharing","-lunr","-search","search-pro-kui","expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"hide-published-with":{},"search-pro-kui":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":24,"bottom":24},"toc":true},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SMAGV - Autoware Cooperation Document","language":"ja","gitbook":"*","description":""},"file":{"path":"src/md/chpt0900.md","mtime":"2020-08-24T07:39:54.554Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-24T07:42:21.647Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
